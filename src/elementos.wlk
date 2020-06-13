@@ -1,3 +1,5 @@
+import plagas.*
+
 class Barrio {
 	
 	var property elementos = []
@@ -8,14 +10,14 @@ class Barrio {
 	method quitarElemento(elemento){
 		elementos.remove(elemento)
 	}
-	method elementosBuenos(){
+	method cantidadBuenos(){
 		return elementos.filter({elem=>elem.esBueno()}).size()
 	}
-	method elementosMalos(){
+	method cantidadMalos(){
 		return elementos.filter({elem=>not elem.esBueno()}).size()
 	}
 	method esCopado(){
-		return self.elementosBuenos() > self.elementosMalos()
+		return self.cantidadBuenos() > self.cantidadMalos()
 	}
 }
 
@@ -23,22 +25,34 @@ class Hogar{
 	var property nivelMugre
 	var property confort
 	
-	method esBueno(){return confort/nivelMugre  <= 2}
+	method esBueno(){return confort/nivelMugre  >= 2}
+	method efectoPorPlaga(tipoPlaga){
+		nivelMugre =+ tipoPlaga.nivelDanio()
+	}
 }
 
-class Granja{
-	var property nivel
-}
-
-class Huerta inherits Granja{
+class Huerta{
 	var property capacidadProduccion
-		
+	var property nivel // ver tema del nivel	
+	
 	method esBueno(){return capacidadProduccion>nivel}
+	method efectoPorPlaga(tipoPlaga){
+		if(tipoPlaga.transmiteEnfermedad()){
+			capacidadProduccion =- tipoPlaga.nivelDanio()*0.10
+			capacidadProduccion =- 10
+		}
+		else {capacidadProduccion =- tipoPlaga.nivelDanio()*0.10}
+	}
 }
 
 class Mascota{
 	var property nivelSalud
 	
 	method esBueno(){return nivelSalud>250}
+	method efectoPorPlaga(tipoPlaga){
+		if(tipoPlaga.transmiteEnfermedad()){
+			nivelSalud =- tipoPlaga.nivelDanio()
+		}
+	}
 }
 

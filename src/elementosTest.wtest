@@ -1,0 +1,40 @@
+import elementos.*
+import plagas.*
+
+describe "Descripción de barrios"{
+	const nivelDeProduccion = 100
+	const hogar1 = new Hogar(nivelMugre=10,confort=20)
+	const hogar2 = new Hogar(nivelMugre=10,confort=18)
+	const hogar3 = new Hogar(nivelMugre=12,confort=20)
+	const hogar4 = new Hogar(nivelMugre=15,confort=20)
+	const hogar5 = new Hogar(nivelMugre=15,confort=30)
+	const huerta1 = new Huerta(capacidadProduccion=110,nivel=nivelDeProduccion)
+	const huerta2 = new Huerta(capacidadProduccion=200,nivel=nivelDeProduccion)
+	const huerta3 = new Huerta(capacidadProduccion=90,nivel=nivelDeProduccion)
+	const huerta4 = new Huerta(capacidadProduccion=80,nivel=nivelDeProduccion)
+	const bobi1 = new Mascota(nivelSalud=100)
+	const bobi2 = new Mascota(nivelSalud=300)
+	const bobi3 = new Mascota(nivelSalud=240)
+	
+	const barrio1 = new Barrio(
+		elementos = [hogar1, hogar2, huerta1, huerta2, huerta3,	bobi1, bobi2]	
+	)
+	const barrio2 = new Barrio(
+		elementos = [hogar3, hogar4, hogar5, huerta4, bobi3]
+	)
+
+test "test de elementos" {
+	assert.that(hogar1.esBueno())
+	assert.notThat(hogar2.esBueno())
+	assert.notThat(hogar3.esBueno())
+	assert.notThat(hogar4.esBueno())
+	assert.that(hogar5.esBueno())
+	assert.that(huerta1.esBueno())
+	assert.that(huerta2.esBueno())
+	assert.notThat(huerta3.esBueno())
+	assert.notThat(huerta4.esBueno())
+	assert.that(barrio1.esCopado())
+	assert.notThat(barrio2.esCopado())
+}	
+}
+
