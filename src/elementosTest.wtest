@@ -1,5 +1,4 @@
 import elementos.*
-import plagas.*
 
 describe "Descripción de barrios"{
 	const nivelDeProduccion = 100

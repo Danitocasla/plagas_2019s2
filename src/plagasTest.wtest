@@ -1,0 +1,41 @@
+import elementos.*
+import plagas.*
+
+describe "Descripción de barrios"{
+	const nivelDeProduccion = 100
+	var hogar1 = new Hogar(nivelMugre=100,confort=200)
+	var huerta1 = new Huerta(capacidadProduccion=101,nivel=nivelDeProduccion)
+	var bobi1 = new Mascota(nivelSalud=251)
+	var bobi2 = new Mascota(nivelSalud=300)
+	
+	
+	const plagaCuca = new Cucarachas(poblacion = 100, pesoPromedio = 9)
+	const plagaPulga = new Pulgas(poblacion = 10)
+	const plagaGarra = new Garrapatas(poblacion = 20)
+	const plagaMosqui = new Mosquito(poblacion = 12)
+	
+	
+test "test de plaga y efectos" {
+	assert.that(hogar1.esBueno())
+	assert.notThat(plagaCuca.transmiteEnfermedad())
+	plagaCuca.ataqueDePlagaA(hogar1)
+	assert.notThat(hogar1.esBueno())
+	assert.that(plagaCuca.transmiteEnfermedad())
+	
+	assert.that(huerta1.esBueno())
+	assert.that(plagaMosqui.transmiteEnfermedad())
+	plagaMosqui.ataqueDePlagaA(huerta1)
+	assert.notThat(plagaMosqui.transmiteEnfermedad())
+	assert.notThat(huerta1.esBueno())
+	
+	assert.that(bobi1.esBueno())
+	plagaPulga.ataqueDePlagaA(bobi1)
+	assert.notThat(bobi1.esBueno())
+	assert.equals(11, plagaPulga.poblacion())
+	
+	assert.that(bobi2.esBueno())
+	plagaGarra.ataqueDePlagaA(bobi2)
+	assert.equals(24, plagaGarra.poblacion())
+}
+	
+}

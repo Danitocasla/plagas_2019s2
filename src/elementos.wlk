@@ -27,7 +27,7 @@ class Hogar{
 	
 	method esBueno(){return confort/nivelMugre  >= 2}
 	method efectoPorPlaga(tipoPlaga){
-		nivelMugre =+ tipoPlaga.nivelDanio()
+		nivelMugre = nivelMugre + tipoPlaga.nivelDanio()
 	}
 }
 

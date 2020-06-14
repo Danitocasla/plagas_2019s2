@@ -20,7 +20,7 @@ class Cucarachas inherits Plaga{
 	}
 	override method ataqueDePlagaA(elemento){
 		super(elemento)
-		pesoPromedio =+ 2
+		pesoPromedio = pesoPromedio + 2
 	}
 	
 }
