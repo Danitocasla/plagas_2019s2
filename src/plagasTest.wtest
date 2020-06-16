@@ -2,9 +2,9 @@ import elementos.*
 import plagas.*
 
 describe "Descripción de barrios"{
-	const nivelDeProduccion = 100
+	const nivel = nivelHuerta.nivel(100)
 	var hogar1 = new Hogar(nivelMugre=100,confort=200)
-	var huerta1 = new Huerta(capacidadProduccion=101,nivel=nivelDeProduccion)
+	var huerta1 = new Huerta(capacidadProduccion=101)
 	var bobi1 = new Mascota(nivelSalud=251)
 	var bobi2 = new Mascota(nivelSalud=300)
 	

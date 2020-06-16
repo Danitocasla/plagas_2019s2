@@ -1,16 +1,16 @@
 import elementos.*
 
 describe "Descripción de barrios"{
-	const nivelDeProduccion = 100
+	const nivel = nivelHuerta.nivel(100)
 	const hogar1 = new Hogar(nivelMugre=10,confort=20)
 	const hogar2 = new Hogar(nivelMugre=10,confort=18)
 	const hogar3 = new Hogar(nivelMugre=12,confort=20)
 	const hogar4 = new Hogar(nivelMugre=15,confort=20)
 	const hogar5 = new Hogar(nivelMugre=15,confort=30)
-	const huerta1 = new Huerta(capacidadProduccion=110,nivel=nivelDeProduccion)
-	const huerta2 = new Huerta(capacidadProduccion=200,nivel=nivelDeProduccion)
-	const huerta3 = new Huerta(capacidadProduccion=90,nivel=nivelDeProduccion)
-	const huerta4 = new Huerta(capacidadProduccion=80,nivel=nivelDeProduccion)
+	const huerta1 = new Huerta(capacidadProduccion=110)
+	const huerta2 = new Huerta(capacidadProduccion=200)
+	const huerta3 = new Huerta(capacidadProduccion=90)
+	const huerta4 = new Huerta(capacidadProduccion=80)
 	const bobi1 = new Mascota(nivelSalud=100)
 	const bobi2 = new Mascota(nivelSalud=300)
 	const bobi3 = new Mascota(nivelSalud=240)

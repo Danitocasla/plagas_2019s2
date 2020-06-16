@@ -31,11 +31,13 @@ class Hogar{
 	}
 }
 
+object nivelHuerta{
+	var property nivel
+}
 class Huerta{
 	var property capacidadProduccion
-	var property nivel // ver tema del nivel	
 	
-	method esBueno(){return capacidadProduccion>nivel}
+	method esBueno(){return capacidadProduccion>nivelHuerta.nivel()}
 	method efectoPorPlaga(tipoPlaga){
 		if(tipoPlaga.transmiteEnfermedad()){
 			capacidadProduccion =- tipoPlaga.nivelDanio()*0.10
